@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/routes.dart';
+
 class HomePage extends StatelessWidget {
   final int days = 30;
   final String name = "Saqib";
@@ -13,7 +15,17 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text("Welcome to $days days of Flutter by $name"),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ElevatedButton(
+          style: TextButton.styleFrom(
+            elevation: 15,
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoutes.loginRoute);
+          },
+          child: Text("Logout"),
+        ),
+      ),
     );
   }
 }
